@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: main-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/add-base-url: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+  - hosts:
+    - demo.kubernetes.com
+  rules:
+  - host: demo.kubernetes.com
+    http:
+      paths:
+      - path: /movie
+        backend:
+          serviceName: appmovie-service
+          servicePort: 5000
+      - path: /tutum
+        backend:
+          serviceName: myapp-service
+          servicePort: 80
