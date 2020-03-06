@@ -1,0 +1,4 @@
+Install NFS Provisioner : helm install nfs-client-provisioner stable/nfs-client-provisioner --set nfs.server=172.16.0.75,nfs.path=/home/data
+Install metric server   : helm install metrics-server stable/metrics-server --values values/metrics-server.values
+Install prometheus      : helm install mdg-prometheus stable/prometheus --values values/prometheus.values --namespace monitoring
+Install grafana         : helm install mdg-grafana stable/grafana --values values/grafana.values --namespace monitoring
