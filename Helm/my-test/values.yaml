@@ -5,7 +5,7 @@
 replicaCount: 3
 
 image:
-  repository: dodistyo/bd-flask
+  repository: dodistyo/support-ticket
   pullPolicy: Always
 
 imagePullSecrets: 
@@ -33,7 +33,7 @@ securityContext: {}
 
 service:
   type: NodePort
-  port: 5000
+  port: 3000
   nodePort: 30031
 
 ingress:
@@ -68,6 +68,14 @@ tolerations: []
 affinity: {}
 
 mariadb:
-  master:
-    persistence:
-      storageClass: standard
+  global:
+    storageClass: nfs-client
+  rootUser:
+    password: root
+  service:
+    type: NodePort
+    nodePort:
+      master: 30036
+      slave: 30037
+  db:
+    name: support_ticket

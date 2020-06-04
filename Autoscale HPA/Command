@@ -1,0 +1,3 @@
+kubectl autoscale rc foo --max=5 --cpu-percent=80
+
+kubectl autoscale deployment foo --min=2 --max=10 

@@ -4,9 +4,9 @@ metadata:
   labels:
     app: flask
   name: flask-deployment
-  namespace: bd-flask
+  namespace: qlinik
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: flask
@@ -17,8 +17,8 @@ spec:
         app: flask
     spec:
       containers:
-      - image: dodistyo/bd-flask:latest
+      - image: medigoid/qlinik-api:k8s
         name: flask
         ports:
-        - containerPort: 5000
+        - containerPort: 80
  
