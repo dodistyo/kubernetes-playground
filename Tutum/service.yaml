@@ -5,14 +5,14 @@ metadata:
 spec:
   selector:
     app: myapp
+  type: NodePort
   ports:
   - protocol: "TCP"
     # Port accessible inside cluster
-    port: 8081
+    port: 80
     # Port to forward to inside the pod
     targetPort: 80
     # Port accessible outside cluster
     nodePort: 30001
-  type: LoadBalancer
-  externalIPs:
-  - 192.168.39.186
+  #externalIPs:
+  #- 192.168.39.186

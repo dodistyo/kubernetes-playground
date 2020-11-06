@@ -112,7 +112,7 @@ podPortName: grafana
 ##
 service:
   type: NodePort
-  nodePort: 30021
+  nodePort: 30002
   port: 80
   targetPort: 3000
     # targetPort: 4181 To be used with a proxy extraContainer
@@ -225,7 +225,7 @@ initChownData:
 
 # Administrator credentials when not using an existing secret (see below)
 adminUser: admin
-adminPassword: strongpassword
+adminPassword: Unsircle123
 
 # Use an existing secret for the admin user.
 admin:
@@ -284,9 +284,11 @@ extraVolumeMounts: []
 
 ## Pass the plugins you want installed as a list.
 ##
-plugins: []
-  # - digrich-bubblechart-panel
+plugins:
+  #= - digrich-bubblechart-panel
   # - grafana-clock-panel
+  - grafana-image-renderer
+  - camptocamp-prometheus-alertmanager-datasource
 
 ## Configure grafana datasources
 ## ref: http://docs.grafana.org/administration/provisioning/#datasources
